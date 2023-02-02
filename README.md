@@ -17,26 +17,15 @@ zweix的Linux配置（[Linux配置指南](https://github.com/zweix123/blog/blob/
 ### 使用
 
 >zsh和oh-my-zsh的按照依照上面的教程
+```bash
+cd 项目下
+zsh install.sh
+```
 
-+ 关于vim、tmux的配置直接拷贝到`~/`下
-+ 关于zsh的配置也可以直接拷贝到`~/`下
-+ 正常install oh-my-zsh会有`~/.oh-my-zsh/custom/`目录，将项目中的主题文件mv到这个目录下
-+ 依照教程再在配置中添加`.oh-my-zsh`的两个插件配置
+---
+
+如果后续更新了配置，可以通过脚本`collect.sh`归档所有配置到该项目下
 
 ### 后续目标
 
 现在的命令历史补全是全白色，后续尝试修改插件源码使之变成更自然的灰色
-
-### 归档脚本
-
-0. `cd ~`
-1. `git clone [SSH git]`
-2. 
-    ```bash
-    cd ~/linux-config
-    cp ~/.vimrc ./
-    cp ~/.tmux.conf ./
-    cp ~/.zshrc ./
-    mkdir ./.oh-my-zsh/custom/
-    mv ~/.oh-my-zsh/custom/robbyrussell.zsh-theme ./.oh-my-zsh/custom
-    ```
