@@ -40,23 +40,17 @@ PROMPT=''  # 开始设计左边
 PROMPT+='%{$fg[yellow]%}%n@%m%{$reset_color%}'  # 黄色的`user@hostname`
 PROMPT+=':'
 PROMPT+='%{$fg[cyan]%}%~%{$reset_color%}'  # 青色的路径
-PROMPT+=' '
+PROMPT+=" "
 PROMPT+='$(git_prompt_info)'  # git
 
-PROMPT+='
-'  # 换行
+PROMPT+="
+"
+# 换行
 
-PROMPT+='%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%}'
-PROMPT+=' '
+PROMPT+="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%}"
+PROMPT+=" "
 
-# PROMPT+='%{$fg_bold[yellow]%}%n@%m%{$reset_color%}:%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
-# PROMPT='%{$fg_bold[yellow]%n@%m%{$reset_color%}:%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
-# PROMPT='%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
-# PROMPT+="
-# %(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%} "
-
-# git的设计
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"%}
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
