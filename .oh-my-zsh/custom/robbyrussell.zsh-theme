@@ -36,12 +36,12 @@
 # Ege:
 # %{%fg_bold[blue]%}%n%{reset_color%}  # 改成蓝色的用户名字段且不影响其他地方
 
-PROMPT=''  # 开始设计左边
-PROMPT+='%{$fg[yellow]%}%n@%m%{$reset_color%}'  # 黄色的`user@hostname`
-PROMPT+=':'
-PROMPT+='%{$fg[cyan]%}%~%{$reset_color%}'  # 青色的路径
+PROMPT=""  # 开始设计左边
+PROMPT+="%{$fg[yellow]%}%n@%m%{$reset_color%}"  # 黄色的`user@hostname`
+PROMPT+=":"
+PROMPT+="%{$fg[cyan]%}%~%{$reset_color%}"  # 青色的路径
 PROMPT+=" "
-PROMPT+='$(git_prompt_info)'  # git
+PROMPT+="$(git_prompt_info)"  # git
 
 PROMPT+="
 "
