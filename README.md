@@ -17,14 +17,13 @@ zweix的Linux配置（[Linux配置指南](https://github.com/zweix123/blog/blob/
 ### 使用
 
 >zsh和oh-my-zsh的按照依照上面的教程
+
 ```bash
-cd 项目下
+# git and cd linux-config
 zsh install.sh
 ```
 
----
-
-如果后续更新了配置，可以通过脚本`collect.sh`归档所有配置到该项目下
++ 脚本`collect.sh`可用于更新配置后归档所有配置文件
 
 ### 后续目标
 
