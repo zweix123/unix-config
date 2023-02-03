@@ -1,5 +1,5 @@
 zweix的Linux配置（[Linux配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)）
->借鉴了[这个oh-my-zsh的配置](https://github.com/Codesire-Deng/rc)
+>借鉴了[这个oh-my-zsh配置](https://github.com/Codesire-Deng/rc)
 
 ### 说明
 
@@ -16,7 +16,7 @@ zweix的Linux配置（[Linux配置指南](https://github.com/zweix123/blog/blob/
 
 ### 使用
 
->zsh和oh-my-zsh的按照依照上面的教程
+>zsh和oh-my-zsh的安装依照上面的教程
 
 ```bash
 # git and cd linux-config
@@ -25,6 +25,7 @@ zsh install.sh
 
 + 脚本`collect.sh`可用于更新配置后归档所有配置文件
 
-### 后续目标
+### Log
 
-现在的命令历史补全是全白色，后续尝试修改插件源码使之变成更自然的灰色
++ [] 命令历史补全中补全部分和已经输入部分颜色相同
++ [] 使用`git clone ...`语句时的语法高亮有bug
