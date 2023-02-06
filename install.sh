@@ -1,4 +1,5 @@
 cp ./.vimrc ~/
 cp ./.tmux.conf ~/
 cp ./.zshrc ~/
-cp ./.oh-my-zsh/custom/robbyrussell.zsh-theme ~/.oh-my-zsh/custom/robbyrussell.zsh-theme
+
+cp ./zweix.zsh-theme ~/.oh-my-zsh/themes/
