@@ -2,7 +2,7 @@
 
 ### 效果
 
-
+![](https://cdn.jsdelivr.net/gh/zweix123/linux-config@master/source/mine.png)
 
 ### 使用
 
