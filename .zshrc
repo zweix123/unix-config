@@ -105,5 +105,5 @@ source $ZSH/oh-my-zsh.sh
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# alias python=python3
-# alias pip=pip3
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
