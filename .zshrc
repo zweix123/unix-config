@@ -105,18 +105,16 @@ source $ZSH/oh-my-zsh.sh
 
 # export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# Ctrl+backspace and Ctrl+delete
+# Ctrl + backspace to delete a word
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
-# 补全bug
+# de auto-completion bug
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# 历史补全颜色
+# modify syntax-highlighting effect
 export TERM=xterm-256color
 
-###
-
+# download Golang
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
