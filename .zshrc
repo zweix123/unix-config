@@ -110,11 +110,15 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
 # de auto-completion bug
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # modify syntax-highlighting effect
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 # download Golang
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# download curveadm
+export PATH=/root/.curveadm/bin:$PATH
