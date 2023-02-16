@@ -60,9 +60,10 @@ local exit_code="%(?,,%{$fg[red]%}[%?]%{$reset_color%})"
 # $
 
 # PROMPT="%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+
 PROMPT="\
 ${venv_info}\
-%(#.%{bg[yellow]%}%{$fg[black]%}%n%{$reset_color%}.%{$fg[cyan]%}%n)\
+%(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n)\
 %{$reset_color%}@\
 %{$fg[green]%}%m\
 %{$reset_color%}:\
@@ -72,5 +73,7 @@ ${git_info}\
 ${svn_info}\
 $exit_code
 %(?,%{$fg_bold[green]%}>,%{$fg_bold[red]%}>)%{$reset_color%} "
+
 # $fg_bold[red]%}> %{$reset_color%}"
 # %{$terminfo[bold]
+

@@ -46,3 +46,4 @@
 + [x] better:[2023.02.15]添加改键脚本，将Caps改为Right用于zsh历史命令补全
 + [x] bug:在容器中使用zsh自动补全自动出现两个无法删除的字符
     解决[2023.02.15]：[教程](https://blog.csdn.net/LittleSeedling/article/details/125193572)
++ [x] debug:[2023.02.16]主题用于root用户会出现用户名渲染错误
