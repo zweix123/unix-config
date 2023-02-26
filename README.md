@@ -1,10 +1,8 @@
-+ 教程：[zweix的linux配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
-
-简约效率风，魔改自官方主题ys
++ 本配置配套教程：[zweix的Linux配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md)
 
 ## Result
-
-![](https://cdn.jsdelivr.net/gh/zweix123/linux-config@master/source/mine.png)
+我统一了自己的win和linux的命令行主题样式，所以效果和win上的命令行效果一致
+>我的[win终端配置](https://github.com/zweix123/posh-config)
 
 ## QuickStart
 
