@@ -245,4 +245,3 @@ set expandtab
 " 主要给Tlist使用
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Auto_Open = 1
-
