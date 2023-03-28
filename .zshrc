@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="zweix"
+unsetopt prompt_cr prompt_sp
 
 # Display python virtualenv
 VIRTUAL_ENV_DISABLE_PROMPT="true"
@@ -105,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 
 # export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
+# emulate bash  # 对bash进行仿真，这样在脚本文件头指明脚本路径的方式可以使用，不然不可以
+
 # Ctrl + backspace to delete a word
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
@@ -126,3 +129,5 @@ export PATH=~/.local/bin:$PATH
 
 # download curveadm
 # export PATH=/root/.curveadm/bin:$PATH
+
+# eval $(thefuck --alias)
