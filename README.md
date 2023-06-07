@@ -3,6 +3,8 @@
 ## Content
 
 + tmux配置
+    >默认prefix key为`Ctrl + b`，我目前使用`Ctrl + x`
+    >>最开始我个人使用`Ctrl + a`, 但是和qemu冲突, 无奈改成这个
 + vim配置（不断扩张）
   + 基础是Acwing提供的配置
 + zsh配置（核心是主题和插件）
