@@ -126,14 +126,9 @@ bindkey '^[[3;5~' kill-word
 # modify syntax-highlighting effect
 export TERM=xterm-256color
 
-# 
-export PATH=~/.local/bin:$PATH
-
 # download Golang
 # export PATH=$PATH:/usr/local/go/bin
 # export PATH=$PATH:$(go env GOPATH)/bin
 
-# download curveadm
-# export PATH=/root/.curveadm/bin:$PATH
-
-# eval $(thefuck --alias)
+# thefuck
+eval $(thefuck --alias)

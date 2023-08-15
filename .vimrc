@@ -126,14 +126,6 @@ set incsearch
 
 " 着色模式
 set t_Co=256
-"colorscheme wombat256mod
-"colorscheme gardener
-"colorscheme elflord
-colorscheme desert
-"colorscheme evening
-"colorscheme darkblue
-"colorscheme torte
-"colorscheme default
 
 " 字体 && 字号
 set guifont=Monaco:h10
@@ -245,3 +237,6 @@ set expandtab
 " 主要给Tlist使用
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Auto_Open = 1
+
+colorscheme gruvbox
+set background=dark
