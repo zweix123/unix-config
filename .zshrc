@@ -74,7 +74,14 @@ VIRTUAL_ENV_DISABLE_PROMPT="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages history zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+    git
+    colored-man-pages
+    history
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    command-not-found
+)
 
 source $ZSH/oh-my-zsh.sh
 
