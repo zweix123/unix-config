@@ -127,6 +127,7 @@ set incsearch
 " 着色模式
 set t_Co=256
 
+
 " 字体 && 字号
 set guifont=Monaco:h10
 "set guifont=Consolas:h10
@@ -240,3 +241,19 @@ let Tlist_Auto_Open = 1
 
 colorscheme gruvbox
 set background=dark
+" colorscheme onedark
+
+let mapleader = " "
+nnoremap <leader>e :NERDTreeToggle<CR>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
