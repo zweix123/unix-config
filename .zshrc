@@ -131,4 +131,4 @@ export TERM=xterm-256color
 # export PATH=$PATH:$(go env GOPATH)/bin
 
 eval $(thefuck --alias)
-
+alias fd='fdfind'
