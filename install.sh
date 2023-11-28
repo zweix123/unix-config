@@ -7,4 +7,8 @@ cp ./.vimrc ~/
 
 cd ~
 rm -rf .vim
-git clone --recursive git@github.com:zweix123/.vim.git
+mkdir .vim
+cd .vim
+mkdir colors
+git clone https://github.com/morhetz/gruvbox.git
+mv gruvbox/colors/gruvbox.vim ./colors/gruvbox.vim

@@ -113,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# emulate bash  # 对bash进行仿真，这样在脚本文件头指明脚本路径的方式可以使用，不然不可以
+# emulate bash  # 对bash进行仿真，这样在脚本文件头指明脚本路径的方式可以使用，不然不可以；虽然依然可以。
 
 # Ctrl + backspace to delete a word
 bindkey '^H' backward-kill-word
@@ -126,9 +126,19 @@ bindkey '^[[3;5~' kill-word
 # modify syntax-highlighting effect
 export TERM=xterm-256color
 
-# download Golang
+# tools alias
+eval $(thefuck --alias)
+alias fd='fdfind'
+alias hcat='batcat --paging=never -n'
+# --paging=nerver bat对于大文件是默认像less那样的, 添加该参数要求其像cat本身一样直接全部输出
+# -n              bat默认输出一个表格, 包括文件名、行数、内容, 使用这个参数表示直接输出本身本身, 但是仍然有行号, 不能像cat本身那样
+# alias rg='rg --hidden --no-follow --max-columns 255 --no-heading --column -F'
+alias rg='rg --hidden --no-follow --no-heading --column -F'
+
+# Python
+export PATH=/home/$USER/.local/bin/:$PATH
+
+# Golang
 # export PATH=$PATH:/usr/local/go/bin
 # export PATH=$PATH:$(go env GOPATH)/bin
 
-eval $(thefuck --alias)
-alias fd='fdfind'

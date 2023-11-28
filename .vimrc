@@ -66,7 +66,6 @@ set showmatch
 set ignorecase
 set smartcase
 
-
 "括号匹配显示时间为1(单位是十分之一秒)
 set matchtime=5
 "显示当前的行号列号：
@@ -82,7 +81,6 @@ set laststatus=2
 " 命令行的高度，默认为1，这里设为2
 set cmdheight=2
 
-
 " 显示Tab符，使用一高亮竖线代替
 set list
 "set listchars=tab:\|\ ,
@@ -97,7 +95,6 @@ filetype plugin on
 filetype indent on
 " 启用自动补全
 filetype plugin indent on 
-
 
 "设置编码自动识别, 中文引号显示
 filetype on "打开文件类型检测
@@ -118,7 +115,6 @@ set encoding=utf-8
 "set ambiwidth=double
 set fileformat=unix
 
-
 "设置高亮搜索
 set hlsearch
 "在搜索时，输入的词句的逐字符高亮
@@ -126,7 +122,6 @@ set incsearch
 
 " 着色模式
 set t_Co=256
-
 
 " 字体 && 字号
 set guifont=Monaco:h10
@@ -145,7 +140,6 @@ set guifont=Monaco:h10
 ""map <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
 ""imap <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
 ""vmap <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
-
 
 
 " ======= 引号 && 括号自动匹配 ======= "
@@ -229,7 +223,7 @@ endif " has("autocmd")
 
 " 增加鼠标行高亮
 set cursorline
-hi CursorLine  cterm=NONE   ctermbg=darkred ctermfg=white
+hi CursorLine  cterm=NONE  ctermbg=NONE ctermfg=white
 
 " 设置tab是四个空格
 set ts=4
@@ -241,19 +235,4 @@ let Tlist_Auto_Open = 1
 
 colorscheme gruvbox
 set background=dark
-" colorscheme onedark
 
-let mapleader = " "
-nnoremap <leader>e :NERDTreeToggle<CR>
-
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'Valloric/YouCompleteMe'
-
-call vundle#end()
