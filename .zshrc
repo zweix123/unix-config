@@ -75,12 +75,14 @@ VIRTUAL_ENV_DISABLE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    # z
     git
-    colored-man-pages
-    history
-    zsh-syntax-highlighting
-    zsh-autosuggestions
+    # history
+    # zsh-completions
+    # colored-man-pages
     command-not-found
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -126,19 +128,70 @@ bindkey '^[[3;5~' kill-word
 # modify syntax-highlighting effect
 export TERM=xterm-256color
 
-# tools alias
-eval $(thefuck --alias)
-alias fd='fdfind'
-alias hcat='batcat --paging=never -n'
+OS_NAME=$(uname -s)
+
+if [[ "$OS_NAME" == "Linux" ]]; then
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+fi
+
+# Programming Language
+## Python
+if [[ "$OS_NAME" == "Linux" ]]; then
+    export PATH=$PATH:/home/$USER/.local/bin/
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+else
+fi
+## Golang
+# export GOPROXY=https://goproxy.io,direct  # 非滴滴
+export GOPROXY=http://goproxy.intra.xiaojukeji.com,direct  # 滴滴
+#export GOSUMDB=off
+## Java
+if [[ "$OS_NAME" == "Linux" ]]; then
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+else
+fi
+
+# Tools
+## modern find -> fd
+if [[ "$OS_NAME" == "Linux" ]]; then
+    RELEASE_VERSION=$(release -s -i)
+    if [[ "$RELEASE_VERSION" == "Ubuntu" ]]; then
+        alias fd="fdfind"
+    fi
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+else
+fi
+
+## modern cat -> tac
+if [[ "$OS_NAME" == "Linux" ]]; then
+    alias tac='batcat --paging=never -n'
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+    alias tac='bat --paging=never -n'
+else
+fi
+
 # --paging=nerver bat对于大文件是默认像less那样的, 添加该参数要求其像cat本身一样直接全部输出
 # -n              bat默认输出一个表格, 包括文件名、行数、内容, 使用这个参数表示直接输出本身本身, 但是仍然有行号, 不能像cat本身那样
+
+## modern grep -> ag -> rg
 # alias rg='rg --hidden --no-follow --max-columns 255 --no-heading --column -F'
-alias rg='rg --hidden --no-follow --no-heading --column -F'
+# alias rg='rg --hidden --no-follow --no-heading --column -F'
+alias rg='rg --no-follow --no-heading --column -F'
 
-# Python
-export PATH=/home/$USER/.local/bin/:$PATH
+# Build Env
+## kvrocks
+if [[ "$OS_NAME" == "Linux" ]]; then
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
+else
+fi
 
-# Golang
-# export PATH=$PATH:/usr/local/go/bin
-# export PATH=$PATH:$(go env GOPATH)/bin
-
+## nuwa
+export GOPATH=~/nuwa
+export PATH=$GOPATH/bin:$PATH
+export PATH=/Users/didi/.rpc-tools:$PATH

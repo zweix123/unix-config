@@ -5,6 +5,8 @@ cp ./zweix.zsh-theme ~/.oh-my-zsh/themes/
 
 cp ./.vimrc ~/
 
+cp -r ./pip ~/.config/
+
 cd ~
 rm -rf .vim
 mkdir .vim
