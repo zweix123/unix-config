@@ -76,8 +76,8 @@ VIRTUAL_ENV_DISABLE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    colored-man-pages
     history
+    colored-man-pages
     zsh-syntax-highlighting
     zsh-autosuggestions
     command-not-found
@@ -126,19 +126,49 @@ bindkey '^[[3;5~' kill-word
 # modify syntax-highlighting effect
 export TERM=xterm-256color
 
-# tools alias
-eval $(thefuck --alias)
-alias fd='fdfind'
-alias hcat='batcat --paging=never -n'
+OS_NAME=$(uname -s)
+
+if [[ "$OS_NAME" == "Linux" ]]; then
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+else
+fi
+
+# Programming Language
+## Python
+if [[ "$OS_NAME" == "Linux" ]]; then
+    export PATH=$PATH:/home/$USER/.local/bin/
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+else
+fi
+## Golang
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Tools
+## modern find -> fd
+if [[ "$OS_NAME" == "Linux" ]]; then
+    RELEASE_VERSION=$(release -s -i)
+    if [[ "$RELEASE_VERSION" == "Ubuntu" ]]; then
+        alias fd="fdfind"
+    fi
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+else
+fi
+
+## modern cat -> tac
+if [[ "$OS_NAME" == "Linux" ]]; then
+    alias tac='batcat --paging=never -n'
+elif [[ "$OS_NAME" == "Darwin" ]]; then
+    alias tac='bat --paging=never -n'
+else
+fi
+
 # --paging=nerver bat对于大文件是默认像less那样的, 添加该参数要求其像cat本身一样直接全部输出
 # -n              bat默认输出一个表格, 包括文件名、行数、内容, 使用这个参数表示直接输出本身本身, 但是仍然有行号, 不能像cat本身那样
+
+## modern grep -> ag -> rg
 # alias rg='rg --hidden --no-follow --max-columns 255 --no-heading --column -F'
 alias rg='rg --hidden --no-follow --no-heading --column -F'
-
-# Python
-export PATH=/home/$USER/.local/bin/:$PATH
-
-# Golang
-# export PATH=$PATH:/usr/local/go/bin
-# export PATH=$PATH:$(go env GOPATH)/bin
 
