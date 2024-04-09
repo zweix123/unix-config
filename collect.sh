@@ -7,3 +7,5 @@ cp ~/.zshrc ./
 cp ~/.oh-my-zsh/themes/zweix.zsh-theme ./
 
 cp ~/.vimrc ./
+
+cp -r ~/.config/pip ./

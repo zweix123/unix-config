@@ -1,4 +1,4 @@
-+ 本配置配套教程：[zweix的Linux配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md)
++ 本配置配套教程：[zweix's Linux配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md) | [zweix's macOS配置教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/macConfigGuide.md)
 
 ## Content
 
@@ -15,12 +15,12 @@
 
 ## Use
 
-+ 按照我的教程配置Linux机器，即下载好zsh、oh-my-zsh其插件
++ 按照我的教程配置Unix机器，即下载好zsh、oh-my-zsh其插件
 
 + 下载：
     ```bash
-    git clone https://github.com/zweix123/linux-config.git
-    cd linux-config/
+    git clone https://github.com/zweix123/unix-config.git
+    cd unix-config/
     ```
 + 备份（一定要进行备份，下面的下载脚本会删除本来的一些文件或目录）：
     ```bash
@@ -43,3 +43,4 @@
 + `.vimrc`是vim的配置文件
 + `.tmux.conf`是tmux的配置文件
 + 脚本`changekey.sh`为改键脚本，个人习惯使用`Caps`来使用历史命令补全
+  >仅保证Linux发行版可行，不保证macOS可行
