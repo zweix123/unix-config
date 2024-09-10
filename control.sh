@@ -4,7 +4,7 @@ sub=(
     "tmux"
     "vim"
     "zsh"
-    "vscode"
+    "IDE"
 )
 
 function install() {
