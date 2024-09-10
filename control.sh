@@ -1,8 +1,8 @@
 #!/bin/bash
 
 sub=(
-    "vim"
     "tmux"
+    "vim"
     "zsh"
     "vscode"
 )

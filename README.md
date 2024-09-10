@@ -1,46 +1,36 @@
-+ 本配置配套教程：[zweix's Linux配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md) | [zweix's macOS配置教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/macConfigGuide.md)
+# Unix Config
+
++ 本配置配套教程：[zweix's Linux配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md) | [zweix's macOS配置教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/macOSConfigGuide.md)
 
 ## Content
 
-+ tmux配置
-    >默认prefix key为`Ctrl + b`，我目前使用`Ctrl + x`
-    >>最开始我个人使用`Ctrl + a`, 但是和qemu冲突, 无奈改成这个
-+ vim配置
-  + 基础是Acwing提供的配置
-  + 配色使用最经典的gruvbox
-  + 功能性插件不断扩展中
-+ zsh配置（核心是主题和插件）
-  + 主题魔改自官方主题`ys`，简约效率风
-  + 插件即常用插件
++ [tmux](./tmux): tmux配置
++ [vim](./vim): vim配置
++ [vscode](./vscode): vscode配置
++ [zsh](./zsh): zsh配置
 
-## Use
++ [script](./script): (杂项)脚本
 
-+ 按照我的教程配置Unix机器，即下载好zsh、oh-my-zsh其插件
+以上这部分的目录下都有对应的README
 
-+ 下载：
-    ```bash
-    git clone https://github.com/zweix123/unix-config.git
-    cd unix-config/
-    ```
-+ 备份（一定要进行备份，下面的下载脚本会删除本来的一些文件或目录）：
-    ```bash
-    bash backup.sh
-    ```
-+ 下载：
-    ```bash
-    bash install.sh
-    ```
-+ 查看：
-    ```bash
-    source ~/.zshrc
-    ```
+## Usage
 
-## Intro
+项目根目录下有`control.sh`脚本, 执行查看
 
-+ 脚本`install.sh`用于将项目中的配置覆盖到本地上
-+ 脚本`backup.sh`用于为本地的配置做备份
-+ 脚本`collect.sh`用于将本地的配置归档回项目中（不包含`.vim`目录下的文件）
-+ `.vimrc`是vim的配置文件
-+ `.tmux.conf`是tmux的配置文件
-+ 脚本`changekey.sh`为改键脚本，个人习惯使用`Caps`来使用历史命令补全
-  >仅保证Linux发行版可行，不保证macOS可行
+```bash
+> ./control.sh        
+用法: ./control.sh {install|backup|collect}
+```
+
+三个选项分别用于
+
++ install: 下载, 将项目中的配置复制覆盖到本地
++ backup: 备份, 为本地的原本的配置做备份
++ collect: 归档, 将本地的对应的配置归档回项目中
+
+强烈建议在install之前backup!!!
+
+control.sh脚本有三个函数分别对应上面三个选项,
+在每个函数中, 则是调用对应子目录下的control.sh脚本,
+而子目录下的control.sh脚本与项目根目录下的control.sh结构上是完全一致的,
+所以假如不想使用所有的配置, 可以到对应的目录下执行其对应的control.sh脚本.
