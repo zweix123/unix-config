@@ -1,10 +1,10 @@
 " An example for a vimrc file.
 "
 " To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+"   for Unix and OS/2: ~/.vimrc
+"	for Amiga: s:.vimrc
+"   for MS-DOS and Win32: $VIM\_vimrc
+"	for OpenVMS: sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -19,35 +19,36 @@ set nocompatible
 set backspace=indent,eol,start
 
 if has("vms")
-    set nobackup		" do not keep a backup file, use versions instead
+    set nobackup  " do not keep a backup file, use versions instead
 else
-    set backup		" keep a backup file
+    set backup  " keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
+
+set history=50  " keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set showcmd     " display incomplete commands
+set incsearch   " do incremental searching
 "==========================================================================
 "My Setting-sunshanlu
 "==========================================================================
 vmap <leader>y :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
 
-"语法高亮
+" 语法高亮
 syntax enable
 syntax on
-"显示行号
+" 显示行号
 set nu
 
-"修改默认注释颜色
+" 修改默认注释颜色
 "hi Comment ctermfg=DarkCyan
-"允许退格键删除
+" 允许退格键删除
 "set backspace=2
-"启用鼠标
+" 启用鼠标
 set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
-"按C语言格式缩进
+" 按C语言格式缩进
 set cindent
 set autoindent
 set smartindent
@@ -60,64 +61,63 @@ set shiftwidth=4
 set writebackup
 set nobackup
 
-"显示括号匹配
+" 显示括号匹配
 set showmatch
 
 set ignorecase
 set smartcase
 
-"括号匹配显示时间为1(单位是十分之一秒)
+" 括号匹配显示时间为1(单位是十分之一秒)
 set matchtime=5
-"显示当前的行号列号：
+" 显示当前的行号列号：
 set ruler
-"在状态栏显示正在输入的命令
+" 在状态栏显示正在输入的命令
 set showcmd
 
 set foldmethod=syntax
-"默认情况下不折叠
+" 默认情况下不折叠
 set foldlevel=100
 " 开启状态栏信息
 set laststatus=2
 " 命令行的高度，默认为1，这里设为2
-set cmdheight=2
+" set cmdheight=2
 
 " 显示Tab符，使用一高亮竖线代替
 set list
-"set listchars=tab:\|\ ,
+" set listchars=tab:\|\ ,
 set listchars=tab:>-,trail:-
 
-
-"侦测文件类型
+" 侦测文件类型
 filetype on
-"载入文件类型插件
+" 载入文件类型插件
 filetype plugin on
-"为特定文件类型载入相关缩进文件
+" 为特定文件类型载入相关缩进文件
 filetype indent on
 " 启用自动补全
 filetype plugin indent on 
 
-"设置编码自动识别, 中文引号显示
+" 设置编码自动识别, 中文引号显示
 filetype on "打开文件类型检测
-"set fileencodings=euc-cn,ucs-bom,utf-8,cp936,gb2312,gb18030,gbk,big5,euc-jp,euc-kr,latin1
+" set fileencodings=euc-cn,ucs-bom,utf-8,cp936,gb2312,gb18030,gbk,big5,euc-jp,euc-kr,latin1
 set fileencodings=utf-8,gb2312,gbk,gb18030
-"这个用能很给劲，不管encoding是什么编码，都能将文本显示汉字
-"set termencoding=gb2312
+" 这个功能很给劲，不管encoding是什么编码，都能将文本显示汉字
+" set termencoding=gb2312
 set termencoding=utf-8
-"新建文件使用的编码
+" 新建文件使用的编码
 set fileencoding=utf-8
-"set fileencoding=gb2312
-"用于显示的编码，仅仅是显示
+" set fileencoding=gb2312
+" 用于显示的编码，仅仅是显示
 set encoding=utf-8
-"set encoding=utf-8
-"set encoding=euc-cn
-"set encoding=gbk
-"set encoding=gb2312
-"set ambiwidth=double
+" set encoding=utf-8
+" set encoding=euc-cn
+" set encoding=gbk
+" set encoding=gb2312
+" set ambiwidth=double
 set fileformat=unix
 
-"设置高亮搜索
+" 设置高亮搜索
 set hlsearch
-"在搜索时，输入的词句的逐字符高亮
+" 在搜索时，输入的词句的逐字符高亮
 set incsearch
 
 " 着色模式
@@ -125,51 +125,50 @@ set t_Co=256
 
 " 字体 && 字号
 set guifont=Monaco:h10
-"set guifont=Consolas:h10
+" set guifont=Consolas:h10
 
 " :LoadTemplate       根据文件后缀自动加载模板
-"let g:template_path='/home/ruchee/.vim/template/'
+" let g:template_path='/home/ruchee/.vim/template/'
 
 " :AuthorInfoDetect   自动添加作者、时间等信息，本质是NERD_commenter && authorinfo的结合
-""let g:vimrc_author='sunshanlu'
-""let g:vimrc_email='sunshanlu@baidu.com'
-""let g:vimrc_homepage='http://www.sunshanlu.com'
+" let g:vimrc_author='sunshanlu'
+" let g:vimrc_email='sunshanlu@baidu.com'
+" let g:vimrc_homepage='http://www.sunshanlu.com'
 "
 "
 " Ctrl + E            一步加载语法模板和作者、时间信息
-""map <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
-""imap <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
-""vmap <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
-
+" map <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
+" imap <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
+" vmap <c-e> <ESC>:AuthorInfoDetect<CR><ESC>Gi
 
 " ======= 引号 && 括号自动匹配 ======= "
-"
-":inoremap ( ()<ESC>i
-
-":inoremap ) <c-r>=ClosePair(')')<CR>
-"
-":inoremap { {}<ESC>i
-"
-":inoremap } <c-r>=ClosePair('}')<CR>
-"
-":inoremap [ []<ESC>i
-"
-":inoremap ] <c-r>=ClosePair(']')<CR>
-"
-":inoremap < <><ESC>i
-"
-":inoremap > <c-r>=ClosePair('>')<CR>
-"
-"":inoremap " ""<ESC>i
-"
-":inoremap ' ''<ESC>i
-"
-":inoremap ` ``<ESC>i
-"
-":inoremap * **<ESC>i
+" 
+" :inoremap ( ()<ESC>i
+" 
+" :inoremap ) <c-r>=ClosePair(')')<CR>
+" 
+" :inoremap { {}<ESC>i
+" 
+" :inoremap } <c-r>=ClosePair('}')<CR>
+" 
+" :inoremap [ []<ESC>i
+" 
+" :inoremap ] <c-r>=ClosePair(']')<CR>
+" 
+" :inoremap < <><ESC>i
+" 
+" :inoremap > <c-r>=ClosePair('>')<CR>
+" 
+" ":inoremap " ""<ESC>i
+" 
+" :inoremap ' ''<ESC>i
+" 
+" :inoremap ` ``<ESC>i
+" 
+" :inoremap * **<ESC>i
 
 " 每行超过80个的字符用下划线标示
-""au BufRead,BufNewFile *.s,*.asm,*.h,*.c,*.cpp,*.java,*.cs,*.lisp,*.el,*.erl,*.tex,*.sh,*.lua,*.pl,*.php,*.tpl,*.py,*.rb,*.erb,*.vim,*.js,*.jade,*.coffee,*.css,*.xml,*.html,*.shtml,*.xhtml Underlined /.\%81v/
+" au BufRead,BufNewFile *.s,*.asm,*.h,*.c,*.cpp,*.java,*.cs,*.lisp,*.el,*.erl,*.tex,*.sh,*.lua,*.pl,*.php,*.tpl,*.py,*.rb,*.erb,*.vim,*.js,*.jade,*.coffee,*.css,*.xml,*.html,*.shtml,*.xhtml Underlined /.\%81v/
 "
 "
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -180,7 +179,7 @@ map Q gq
 
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
-"vnoremap p "_dp
+" vnoremap p "_dp
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -219,20 +218,14 @@ else
 
     set autoindent		" always set autoindenting on
 
-endif " has("autocmd")
+endif
 
 " 增加鼠标行高亮
 set cursorline
-hi CursorLine  cterm=NONE  ctermbg=NONE ctermfg=white
 
 " 设置tab是四个空格
 set ts=4
 set expandtab
 
-" 主要给Tlist使用
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Auto_Open = 1
-
 colorscheme gruvbox
-set background=dark
-
+set background=dark  " 告知vim当前终端正使用暗色模式

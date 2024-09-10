@@ -12,5 +12,5 @@ rm -rf .vim
 mkdir .vim
 cd .vim
 mkdir colors
-git clone https://github.com/morhetz/gruvbox.git
-mv gruvbox/colors/gruvbox.vim ./colors/gruvbox.vim
+cd colors
+curl -o gruvbox.vim https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim
