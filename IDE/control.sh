@@ -10,17 +10,20 @@ function locate() {
 
 function install() {
     locate
-    echo "install vscode"
+    echo "install IDE"
+    python3 control.py install
 }
 
 function backup() {
     locate
-    echo "backup vscode"
+    echo "backup IDE"
+    python3 control.py backup
 }
 
 function collect() {
     locate
-    echo "collect vscode"
+    echo "collect IDE"
+    python3 control.py collect
 }
 
 case "$1" in
