@@ -77,9 +77,9 @@ VIRTUAL_ENV_DISABLE_PROMPT="true"
 plugins=(
     # z
     git
-    # history
-    # zsh-completions
-    # colored-man-pages
+    history
+    zsh-completions
+    colored-man-pages
     command-not-found
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -143,16 +143,17 @@ if [[ "$OS_NAME" == "Linux" ]]; then
 elif [[ "$OS_NAME" == "Darwin" ]]; then
 else
 fi
+
 ## Golang
-# export GOPROXY=https://goproxy.io,direct  # 非滴滴
-export GOPROXY=http://goproxy.intra.xiaojukeji.com,direct  # 滴滴
+# export GOPROXY=https://goproxy.io,direct # 非滴滴
+export GOPROXY=http://goproxy.intra.xiaojukeji.com,direct # 滴滴
 #export GOSUMDB=off
+
 ## Java
 if [[ "$OS_NAME" == "Linux" ]]; then
 elif [[ "$OS_NAME" == "Darwin" ]]; then
     export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
     export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 else
 fi
 
