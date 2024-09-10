@@ -1,6 +1,15 @@
 #!/bin/bash
 
+function locate() {
+    CURRENT_FOLDER=$(
+        cd "$(dirname "$0")"
+        pwd
+    )
+    cd $CURRENT_FOLDER
+}
+
 function install() {
+    locate
     cp ./.vimrc ~/
 
     rm -rf ~/.vim
@@ -12,12 +21,14 @@ function install() {
 }
 
 function backup() {
+    locate
     cp ~/.vimrc ~/.vimrc.backup
     cp -r ~/.vim ~/.vim.backup
     echo "backup vim"
 }
 
 function collect() {
+    locate
     cp ~/.vimrc ./
     # ~/.vim/
     echo "collect vim"

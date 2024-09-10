@@ -1,14 +1,25 @@
 #!/bin/bash
 
+function locate() {
+    CURRENT_FOLDER=$(
+        cd "$(dirname "$0")"
+        pwd
+    )
+    cd $CURRENT_FOLDER
+}
+
 function install() {
+    locate
     echo "install vscode"
 }
 
 function backup() {
+    locate
     echo "backup vscode"
 }
 
 function collect() {
+    locate
     echo "collect vscode"
 }
 

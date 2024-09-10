@@ -1,16 +1,27 @@
 #!/bin/bash
 
+function locate() {
+    CURRENT_FOLDER=$(
+        cd "$(dirname "$0")"
+        pwd
+    )
+    cd $CURRENT_FOLDER
+}
+
 function install() {
+    locate
     cp ./.tmux.conf ~/
     echo "install tmux"
 }
 
 function backup() {
+    locate
     cp ~/.tmux.conf ~/.tmux.conf.backup
     echo "backup tmux"
 }
 
 function collect() {
+    locate
     cp ~/.tmux.conf ./
     echo "collect tmux"
 }
