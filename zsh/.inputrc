@@ -1,0 +1,15 @@
+set revert-all-at-newline on  # 默认关闭, 若不开启, 使用方向键上键旧命令, 然后修改, 修改后的命令会出现在历史中
+
+# 删除前一个单词 (Ctrl + Backspace)
+"\C-h": backward-kill-word
+
+# 删除后一个单词 (Ctrl + Delete)
+"\e[3;5~": kill-word
+
+# 绑定 Option + 左右方向键为按字符移动
+"\e[b": backward-char
+"\e[f": forward-char
+
+# 绑定 Command + 左右方向键为 Home 和 End
+"\eOH": beginning-of-line
+"\eOF": end-of-line

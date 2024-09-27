@@ -12,6 +12,7 @@ function install() {
     locate
     cp ./.zshrc ~/
     cp ./zweix.zsh-theme ~/.oh-my-zsh/themes/
+    cp ./.inputrc ~/.inputrc
     echo "install zsh"
 }
 
@@ -19,6 +20,7 @@ function backup() {
     locate
     cp ~/.zshrc ~/.zshrc.backup
     # ~/.oh-my-zsh/themes/
+    cp ~/.inputrc ~/.inputrc.backup
     echo "backup zsh"
 }
 
@@ -26,6 +28,7 @@ function collect() {
     locate
     cp ~/.zshrc ./
     cp ~/.oh-my-zsh/themes/zweix.zsh-theme ./
+    cp ~/.inputrc ./
     echo "collect zsh"
 }
 

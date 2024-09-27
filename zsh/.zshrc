@@ -117,10 +117,6 @@ source $ZSH/oh-my-zsh.sh
 
 # emulate bash  # 对bash进行仿真，这样在脚本文件头指明脚本路径的方式可以使用，不然不可以；虽然依然可以。
 
-# Ctrl + backspace to delete a word
-bindkey '^H' backward-kill-word
-bindkey '^[[3;5~' kill-word
-
 # de auto-completion bug
 # export LC_ALL=en_US.UTF-8
 # export LANG=en_US.UTF-8
@@ -147,7 +143,7 @@ fi
 ## Golang
 # export GOPROXY=https://goproxy.io,direct # 非滴滴
 export GOPROXY=http://goproxy.intra.xiaojukeji.com,direct # 滴滴
-#export GOSUMDB=off
+export GOSUMDB=off                                        # fix "dial tcp: lookup xxx.com on 8.8.8.8:53: no such host"
 
 ## Java
 if [[ "$OS_NAME" == "Linux" ]]; then
@@ -175,7 +171,6 @@ elif [[ "$OS_NAME" == "Darwin" ]]; then
     alias tac='bat --paging=never -n'
 else
 fi
-
 # --paging=nerver bat对于大文件是默认像less那样的, 添加该参数要求其像cat本身一样直接全部输出
 # -n              bat默认输出一个表格, 包括文件名、行数、内容, 使用这个参数表示直接输出本身本身, 但是仍然有行号, 不能像cat本身那样
 
@@ -183,6 +178,9 @@ fi
 # alias rg='rg --hidden --no-follow --max-columns 255 --no-heading --column -F'
 # alias rg='rg --hidden --no-follow --no-heading --column -F'
 alias rg='rg --no-follow --no-heading --column -F'
+
+## modern tree -> br
+source /Users/didi/.config/broot/launcher/bash/br
 
 # Build Env
 ## kvrocks
