@@ -36,9 +36,6 @@
             "notebook.source.organizeImports": "explicit"
         }
     },
-    "black-formatter.path": [ // TODO(zweix)
-        "/opt/homebrew/bin/pyink"
-    ],
     // 上面提到, python 文件保存时整理import语句, 使用isort包, 相关参数在这里配置
     "isort.args": [
         "--profile", // 预设的配置文件

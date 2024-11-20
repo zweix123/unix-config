@@ -135,23 +135,15 @@ fi
 # Programming Language
 ## Python
 if [[ "$OS_NAME" == "Linux" ]]; then
-    export PATH=$PATH:/home/$USER/.local/bin/
+    export PATH = $(brew --prefix python)/libexec/bin:$PATH # macOS会自带一个Python(我当时是3.9), 通过brew install python使用最新版的Python, 个人的开发也使用brew下载的, 故将brew下的python放入路径
 elif [[ "$OS_NAME" == "Darwin" ]]; then
 else
 fi
 
 ## Golang
-# export GOPROXY=https://goproxy.io,direct # 非滴滴
+export GOSUMDB=off # fix "dial tcp: lookup xxx.com on 8.8.8.8:53: no such host"
+# export GOPROXY=https://goproxy.io,direct                  # 非滴滴
 export GOPROXY=http://goproxy.intra.xiaojukeji.com,direct # 滴滴
-export GOSUMDB=off                                        # fix "dial tcp: lookup xxx.com on 8.8.8.8:53: no such host"
-
-## Java
-if [[ "$OS_NAME" == "Linux" ]]; then
-elif [[ "$OS_NAME" == "Darwin" ]]; then
-    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-    export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-else
-fi
 
 # Tools
 ## modern find -> fd
@@ -183,14 +175,14 @@ alias rg='rg --no-follow --no-heading --column -F'
 source /Users/didi/.config/broot/launcher/bash/br
 
 # Build Env
+## didi
+### nuwa
+export GOPATH=~/nuwa
+export PATH=$GOPATH/bin:$PATH
+export PATH=/Users/didi/.rpc-tools:$PATH
 ## kvrocks
 if [[ "$OS_NAME" == "Linux" ]]; then
 elif [[ "$OS_NAME" == "Darwin" ]]; then
     export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
 else
 fi
-
-## nuwa
-export GOPATH=~/nuwa
-export PATH=$GOPATH/bin:$PATH
-export PATH=/Users/didi/.rpc-tools:$PATH
