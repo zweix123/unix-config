@@ -15,6 +15,8 @@
     /// language server
     "gopls": {
         "ui.semanticTokens": true, // 高亮强化
+        "ui.noSemanticNumber": true, // 禁用数字的语义化高亮
+        "ui.noSemanticString": true, // 禁用字符串的语义化高亮
         "formatting.gofumpt": true, // 格式化强化
         "usePlaceholders": true, // 补全强化
         "staticcheck": true // lint强化
@@ -32,8 +34,9 @@
         "editor.defaultFormatter": "ms-python.black-formatter", // formatter: black
         // 下面的作用是: 当文件保存时, 对import语句进行整理
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-            "notebook.source.organizeImports": "explicit"
+            "source.organizeImports": "explicit", // 使用isort包对import语句进行整理
+            "source.unusedImports": "explicit", // 使用autoflake对未使用的import语句进行删除
+            "notebook.source.organizeImports": "explicit" // 使用isort包对notebook中的import语句进行整理
         }
     },
     // 上面提到, python 文件保存时整理import语句, 使用isort包, 相关参数在这里配置
