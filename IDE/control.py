@@ -46,6 +46,7 @@ def read_settings(settings_file: str) -> dict:
         return json.loads(content)
     except json.JSONDecodeError as e:
         print(f"error: {e}")
+        print(settings_file)
         print(content)
         raise e
 

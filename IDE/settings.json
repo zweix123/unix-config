@@ -9,8 +9,25 @@
     "editor.minimap.enabled": true, // 显示缩略图
     "editor.wordWrap": "off", // 一行超过宽度是否换行, 默认不换行, 假如想换行则设置成on
     // golang
-    "[go]": { // go mod name 通常是网址, 所以当想通过Command+左键跳转的时候, VSCode会将其作为网址打开, 故关闭
-        "editor.links": false
+    "[go]": {
+        "editor.links": false, // go mod name 通常是网址, 所以当想通过Command+左键跳转的时候, VSCode会将其作为网址打开, 故关闭
+        "go.diagnostic.vulncheck": "Imports", // 检查已导入包的已知漏洞
+        "go.logging.level": "verbose", // 详细的日志记录级别
+        "go.liveErrors": {
+            "enabled": true // 实时显示错误
+        },
+        // ref: https://github.com/Binaryify/OneDark-Pro/issues/822
+        "go.inlayHints.compositeLiteralFields": true, // 内联提示(inlay hints)相关配置
+        "go.inlayHints.compositeLiteralTypes": true,
+        "go.inlayHints.constantValues": true,
+        "go.inlayHints.functionTypeParameters": true,
+        "go.inlayHints.parameterNames": true,
+        "go.inlayHints.rangeVariableTypes": true,
+        "go.autocompleteUnimportedPackages": true, // 其他
+        "go.editorContextMenuCommands": {
+            "removeTags": true,
+            "fillStruct": true
+        }
     },
     /// language server
     "gopls": {
