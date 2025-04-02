@@ -32,18 +32,22 @@
     /// language server
     "gopls": {
         "ui.semanticTokens": true, // 高亮强化
-        "ui.noSemanticNumber": true, // 禁用数字的语义化高亮
-        "ui.noSemanticString": true, // 禁用字符串的语义化高亮
+        "ui.semanticTokenTypes": {
+            "number": false, // 禁用数字的语义化高亮
+            "string": false // 禁用字符串的语义化高亮
+        },
         "formatting.gofumpt": true, // 格式化强化
         "usePlaceholders": true, // 补全强化
-        "staticcheck": true // lint强化
+        "staticcheck": true, // lint强化
+        "analyses": {
+            "unusedparams": true,
+            "unusedwrite": true
+        }
     },
     /// linter
     "go.lintTool": "golangci-lint", // golangci-lint是多个linter的集合(golint, vet, errcheck, staticcheck), 使用配置文件 .golangci.yml 不过没有也能用
     "go.lintFlags": [
-        "-set_exit_status", // 发现任何 lint 问题时返回一个非零的退出状态
-        "-c",
-        "~/Configs/unix-config/IDE/config/.golangci.yml" //! 写死
+        "-set_exit_status" // 发现任何 lint 问题时返回一个非零的退出状态
     ],
     /// formatter
     "go.formatTool": "goimports", // 格式化强化, 但是不知道为什么没有和上面的冲突
