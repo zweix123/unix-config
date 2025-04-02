@@ -113,8 +113,8 @@ def collect():
     姑且选择cursor的吧.
     """
     if os.path.exists(CURSOR_SETTINGS):
-        write_cursor_settings(
-            setting_corver(read_config_settings(), read_cursor_settings())
+        write_config_settings(
+            setting_corver(read_cursor_settings(), read_config_settings())
         )
     else:
         print("cursor settings not found")
