@@ -22,5 +22,7 @@
 ```bash
 git clone https://github.com/zweix123/unix-config.git
 cd unix-config
-cd IDE && bash control.sh install && cd ..
+# 下面两个命令会创建虚拟Python环境并安装依赖
+cd IDE && bash control.sh backup && cd ..  # 保存旧配置
+cd IDE && bash control.sh install && cd ..  # 加载新配置
 ```
