@@ -111,24 +111,28 @@ def install():
     settings = read_config_settings()
     if os.path.exists(VSCODE_SETTINGS):
         write_vscode_settings(cover_settings(settings, read_vscode_settings()))
+        print("[INFO] vscode settings installed")
     else:
-        print("vscode settings not found")
+        print("[WARN] vscode settings not found")
     if os.path.exists(CURSOR_SETTINGS):
         write_cursor_settings(cover_settings(settings, read_cursor_settings()))
+        print("[INFO] cursor settings installed")
     else:
-        print("cursor settings not found")
+        print("[WARN] cursor settings not found")
 
 
 def backup():
     print("[INFO] backup IDE settings")
     if os.path.exists(VSCODE_SETTINGS):
         shutil.copy(VSCODE_SETTINGS, VSCODE_SETTINGS + ".backup")
+        print("[INFO] vscode settings backed up")
     else:
-        print("vscode settings not found")
+        print("[WARN] vscode settings not found")
     if os.path.exists(CURSOR_SETTINGS):
         shutil.copy(CURSOR_SETTINGS, CURSOR_SETTINGS + ".backup")
+        print("[INFO] cursor settings backed up")
     else:
-        print("cursor settings not found")
+        print("[WARN] cursor settings not found")
 
 
 def collect():
@@ -142,6 +146,7 @@ def collect():
         write_config_settings(
             cover_settings(read_cursor_settings(), read_config_settings())
         )
+        print("[INFO] cursor settings collected")
     else:
         print("[WARN] cursor settings not found")
 

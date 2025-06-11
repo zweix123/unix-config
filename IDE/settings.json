@@ -87,6 +87,9 @@
             "number": false, // 禁用数字的语义化高亮
             "string": false // 禁用字符串的语义化高亮
         },
+        "ui.noSemanticNumber": true, // 禁用数字的语义化高亮
+        "ui.noSemanticString": true, // 禁用字符串的语义化高亮
+        // 
         "formatting.gofumpt": true, // 格式化强化: 使用 gofumpt 进行格式化, gofumpt是gofmt的超集
         "usePlaceholders": true, // 启用智能占位符补全, 补全时插入占位符的模板(比如函数参数), 按Tab可快速跳转填充
         "staticcheck": true, // lint强化: 使用staticcheck进行lint检查, 比 go vet 更严格
@@ -100,8 +103,7 @@
     "go.lintFlags": [
         // "--new",  // 仅显示新增代码的错误
         "--fast",
-        "--fix",
-        "-set_exit_status" // 发现任何 lint 问题时返回一个非零的退出状态
+        "--fix"
     ],
     "go.diagnostic.vulncheck": "Imports", // 检查已导入包的已知漏洞
     /// formatter, ref: https://github.com/golang/vscode-go/wiki/settings#goformattool
