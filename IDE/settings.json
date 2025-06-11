@@ -1,31 +1,53 @@
 {
     // ==================== 个人配置 ====================
-    // 个人 VSCode 配置, 通常放在 User Settings 中
+    // 个人 VSCode/Cursor 配置, 通常放在 User Settings 中
     // ==================== 基本配置 ====================
-    "editor.formatOnSave": true, // 保存时自动格式化, 这个可能会造成困难, 因为工作中大概率接触很多没有格式化过的代码 : )
-    "editor.rulers": [ // 80, 120 字符分割线
+    "security.workspace.trust.enabled": false, // 关闭工作区信任
+    "editor.formatOnSave": true, // 保存时自动格式化
+    // 以下配置依赖插件
+    "workbench.colorTheme": "One Dark Pro Darker", // 主题, 依赖插件: One Dark Pro
+    "workbench.iconTheme": "vscode-icons", // 图标, 依赖插件: vscode-icons
+    "editor.fontFamily": "Fira Code", // 字体, 依赖插件: FiraCode font - Professional Font for Developers
+    "terminal.integrated.fontFamily": "MesloLGM NF", // 终端字体
+    // "editor.fontLigatures": true, // 字体连字, mac上不能使用, 因为Fira Code对 f 做连字后不再是等宽字体
+    // "editor.cursorStyle": "line",  // [默认] 光标格式, 线
+    // "editor.autoIndent": "full", // [默认] 换行时锁紧策略, 全锁进
+    //
+    "workbench.editor.wrapTabs": true, // 打开标签页换行
+    "editor.minimap.enabled": true, // 显示(右侧)缩略图
+    "editor.rulers": [ // 行字数提醒: 80, 120 字符分割线
         80,
         120
     ],
-    "editor.minimap.enabled": true, // 显示缩略图
-    "editor.wordWrap": "off", // 一行超过宽度是否换行, 默认不换行, 假如想换行则设置成on
+    //
+    "editor.guides.bracketPairs": true, // 显示括号对齐线
+    "editor.stickyScroll.enabled": true, // 打开粘性滚动, 对于大代码块时, 光标所在的代码块的首行悬浮在窗口顶部
+    //
+    "editor.wordWrap": "off", // 单行内容超过宽度是否换行, 默认不换行, 假如想换行则设置成on.
+    // 
+    "editor.suggest.preview": false, // 关闭补全预览(与Cursor本来的补全显示冲突)
+    // 
+    "workbench.list.smoothScrolling": true, // 列表滚动顺滑
+    "editor.smoothScrolling": true, // 编辑器滚动顺滑
+    "terminal.integrated.smoothScrolling": true, // 终端滚动顺滑
+    "editor.cursorBlinking": "smooth", // 光标闪烁顺滑
     // ==================== golang ====================
     // ref: https://github.com/Binaryify/OneDark-Pro/issues/822
     // ref: https://dipjyotimetia.medium.com/vs-code-setup-for-golang-development-in-2025-57ba0a50881c
     // 基本配置
+    // "go.toolsManagement.autoUpdate": false, // [默认] 关闭自动更新工具, 因为假如打开自动更新, 编辑go项目时会自动弹出Output页面, 很烦人
+    // "go.useLanguageServer": true, // [默认] 使用LSP, 但是这个配置在VSCode中是默认的, 所以不需要配置
     "[go]": {
-        "editor.links": false, // go mod name 通常是网址, 所以当想通过Command+左键跳转的时候, VSCode会将其作为网址打开, 故关闭
-        "editor.insertSpaces": false,
-        "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "file",
-        "editor.stickyScroll.enabled": true, // Better navigation for long files
+        "editor.links": false, // go mod name 通常是网址, 所以当想通过 Ctrl/Command + 左键 跳转的时候, VSCode会将其作为网址打开, 故关闭
+        "editor.insertSpaces": false, // 按 tab 时插入制表符而非空格
+        "editor.formatOnSaveMode": "file", // 保存时自动格式化只格式化保存的文件
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "always",
-            "source.fixAll": "always"
+            "source.organizeImports": true, // 自动整理导入语句
+            "source.fixAll": true // 自动修复所有可修复问题
         }
     },
     "go.toolsEnvVars": {
-        "GOFLAGS": "-buildvcs=false" // Better performance for large repos
+        "GOFLAGS": "-buildvcs=false" // Better performance for large repos: 禁用Go构建时的版本控制系统(VCS)元数据检测，主要用于提升大型代码仓库的构建性能
     },
     "go.logging.level": "verbose", // 详细的日志记录级别
     "go.liveErrors": {
@@ -42,32 +64,56 @@
     "go.autocompleteUnimportedPackages": true, // 自动补全未引用的包
     // IDE功能强化
     "go.editorContextMenuCommands": {
-        "removeTags": true, // 启用右键"移除结构体标签"功能
-        "fillStruct": true // 启用右键"填充结构体标签"功能
+        "toggleTestFile": true, // [默认][启用]右键"切换 到/回 测试文件"功能
+        "addTags": true, // [默认][启用]右键"添加结构体标签"功能
+        "removeTags": true, // [启用]右键"移除结构体标签"功能
+        "fillStruct": true, // [启用]右键"填充结构体标签"功能
+        "testAtCursor": false, // [禁用]右键"在光标处运行测试"功能
+        "testFile": false, // [默认][禁用]右键"运行测试文件"功能
+        "testPackage": false, // [默认][禁用]右键"运行测试包"功能
+        "generateTestForFunction": true, // [默认][启用]右键"为函数生成测试"功能
+        "generateTestForFile": false, // [默认][禁用]右键"为文件生成测试"功能
+        "generateTestForPackage": false, // [默认][禁用]]右键"为包生成测试"功能
+        "addImport": false, // [禁用]右键"添加导入"功能
+        "testCoverage": false, // [禁用]右键"测试覆盖率"功能
+        "playground": false, // [禁用]右键"运行Playground"功能
+        "debugTestAtCursor": true, // [默认][启用]右键"在光标处调试测试"功能
+        "benchmarkAtCursor": false // [默认][禁用]右键"在光标处基准测试"功能
     },
     /// language server
     "gopls": {
-        "ui.semanticTokens": true, // 高亮强化
+        "ui.semanticTokens": true, // 高亮强化: 启动语义化代码高亮, 根据变量/函数的实际作用域和含义进行高亮
         "ui.semanticTokenTypes": {
             "number": false, // 禁用数字的语义化高亮
             "string": false // 禁用字符串的语义化高亮
         },
-        // "formatting.gofumpt": true, // 格式化强化
-        "usePlaceholders": true, // 补全强化
-        "staticcheck": true, // lint强化
+        "formatting.gofumpt": true, // 格式化强化: 使用 gofumpt 进行格式化, gofumpt是gofmt的超集
+        "usePlaceholders": true, // 启用智能占位符补全, 补全时插入占位符的模板(比如函数参数), 按Tab可快速跳转填充
+        "staticcheck": true, // lint强化: 使用staticcheck进行lint检查, 比 go vet 更严格
         "analyses": {
-            "unusedparams": true, // 未使用参数
-            "unusedwrite": true // 未使用写入
+            "unusedparams": true, // 检测未使用参数
+            "unusedwrite": true // 检测未使用写入
         }
     },
     /// linter
     "go.lintTool": "golangci-lint", // golangci-lint是多个linter的集合(golint, vet, errcheck, staticcheck), 使用配置文件 .golangci.yml 不过没有也能用
     "go.lintFlags": [
+        // "--new",  // 仅显示新增代码的错误
+        "--fast",
+        "--fix",
         "-set_exit_status" // 发现任何 lint 问题时返回一个非零的退出状态
     ],
     "go.diagnostic.vulncheck": "Imports", // 检查已导入包的已知漏洞
-    /// formatter
-    // "go.formatTool": "goimports", // 格式化强化, 但是不知道为什么没有和上面的冲突, 该配置疑似根本没有生效
+    /// formatter, ref: https://github.com/golang/vscode-go/wiki/settings#goformattool
+    "go.formatTool": "goimports", // 格式化强化: goimports = gofmt + 自动增删 import 语句, 按照上面的文档, 这个应该没有生效
+    /// test
+    "go.testFlags": [
+        "-gcflags=\"all=-l -N\"", // 编译时取消内联, 用于mock库
+        "-v", // 即verbose, 详细输出, 显示包括标准输出和日志以及子测试
+        "-cover", // 显示包内单测测试函数对整个包的“正式”代码的覆盖率
+        "-race" // 竞态分析, 判断单测函数是否有并发冲突
+    ],
+    // "go.enableCodeLens.runtest": true, // [默认] 启用单测代码提示
     // ==================== python ====================
     /// formatter
     "[python]": {
@@ -94,5 +140,4 @@
         "dryadsfile": "python", // dryadsfile
         "*.idl": "thrift" // only for didi
     }
-    // ==================== 个人配置 ====================
 }
