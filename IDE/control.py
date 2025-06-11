@@ -13,14 +13,17 @@
       3. 原子类型: a的值覆盖b的值
    3. 假如一个键a没有b有: 不做处理
    上面有一个值得注意的点, 就是这意味着我们的配置对实际的配置是只能增不能删除的
+   此时假如随着本项目的更新, 某些配置被删除了, 但是已经使用过本项目的之前版本, 这些删除的配置不会刷新
 4. python标准库json的读取中, 要求map或者list的最后, 不能有行尾逗号, 但这些逗号在vsc的配置或者vsc的json中都是允许的, 需要手动删除
+5. 上面的注释问题已经尾逗号问题, python中有专门的库处理, 现已更新成使用新库的方式, 所以配置的书写上随意
 """
 
-import json
 import os
 import shutil
 import sys
 
+# 该库支持非标准的json文件, 包括单行, 多行注释以及尾逗号
+import commentjson  # type: ignore
 from rich import print
 
 # 区分Windows、Linux和macOS
@@ -43,21 +46,42 @@ SETTINGS = "./settings.json"
 
 
 def read_settings(settings_file: str) -> dict:
-    content = ""
-    # 手动过滤注释(并不是Json标准的东西)
+    assert os.path.exists(settings_file), f"[ERROR] file {settings_file} not found"
     with open(settings_file, "r", encoding="utf-8") as f:
-        for line in f:
-            if "//" in line:  #! 默认正文中没有//
-                line = line[: line.index("//")]
-            content += line
+        content = f.read()
+        if content == "":
+            print(f"[WARNING] file: {settings_file} is empty")
+            return {}
+        return commentjson.loads(content)
 
-    try:
-        return json.loads(content)
-    except json.JSONDecodeError as e:
-        print(f"error: {e}")
-        print(settings_file)
-        print(content)
-        raise e
+
+def read_config_settings() -> dict:
+    return read_settings(SETTINGS)
+
+
+def read_vscode_settings() -> dict:
+    return read_settings(VSCODE_SETTINGS)
+
+
+def read_cursor_settings() -> dict:
+    return read_settings(CURSOR_SETTINGS)
+
+
+def write_settings(settings_file: str, settings: dict):
+    with open(settings_file, "w", encoding="utf-8") as f:
+        commentjson.dump(settings, f, ensure_ascii=False, indent=4)
+
+
+def write_config_settings(settings: dict):
+    write_settings(SETTINGS, settings)
+
+
+def write_vscode_settings(settings: dict):
+    write_settings(VSCODE_SETTINGS, settings)
+
+
+def write_cursor_settings(settings: dict):
+    write_settings(CURSOR_SETTINGS, settings)
 
 
 def cover_settings(corver: dict, be_corvered: dict) -> dict:  # corver -> be_corvered
@@ -82,37 +106,8 @@ def cover_settings(corver: dict, be_corvered: dict) -> dict:  # corver -> be_cor
     return be_corvered_copy
 
 
-def read_config_settings() -> dict:
-    return read_settings(SETTINGS)
-
-
-def read_vscode_settings() -> dict:
-    return read_settings(VSCODE_SETTINGS)
-
-
-def read_cursor_settings() -> dict:
-    return read_settings(CURSOR_SETTINGS)
-
-
-def write_settings(settings_file: str, settings: dict):
-    with open(settings_file, "w", encoding="utf-8") as f:
-        json.dump(settings, f, ensure_ascii=False)
-
-
-def write_config_settings(settings: dict):
-    write_settings(SETTINGS, settings)
-
-
-def write_vscode_settings(settings: dict):
-    write_settings(VSCODE_SETTINGS, settings)
-
-
-def write_cursor_settings(settings: dict):
-    write_settings(CURSOR_SETTINGS, settings)
-
-
 def install():
-    print("install IDE")
+    print("[INFO] install IDE settings")
     settings = read_config_settings()
     if os.path.exists(VSCODE_SETTINGS):
         write_vscode_settings(cover_settings(settings, read_vscode_settings()))
@@ -125,7 +120,7 @@ def install():
 
 
 def backup():
-    print("backup IDE")
+    print("[INFO] backup IDE settings")
     if os.path.exists(VSCODE_SETTINGS):
         shutil.copy(VSCODE_SETTINGS, VSCODE_SETTINGS + ".backup")
     else:
@@ -137,7 +132,7 @@ def backup():
 
 
 def collect():
-    print("IDE collect")
+    print("[INFO] collect IDE settings")
     """
     收集配置中有的键的在本地配置的值,
     但是是选择vscode的还是cursor的呢?
@@ -148,7 +143,7 @@ def collect():
             cover_settings(read_cursor_settings(), read_config_settings())
         )
     else:
-        print("cursor settings not found")
+        print("[WARN] cursor settings not found")
 
 
 def locate():
