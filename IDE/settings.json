@@ -83,14 +83,14 @@
     /// language server
     "gopls": {
         "ui.semanticTokens": true, // 高亮强化: 启动语义化代码高亮, 根据变量/函数的实际作用域和含义进行高亮
-        "ui.semanticTokenTypes": {
-            "number": false, // 禁用数字的语义化高亮
-            "string": false // 禁用字符串的语义化高亮
-        },
+        // "ui.semanticTokenTypes": {
+        //     "number": false, // 禁用数字的语义化高亮
+        //     "string": false // 禁用字符串的语义化高亮
+        // },
         "ui.noSemanticNumber": true, // 禁用数字的语义化高亮
         "ui.noSemanticString": true, // 禁用字符串的语义化高亮
         // 
-        "formatting.gofumpt": true, // 格式化强化: 使用 gofumpt 进行格式化, gofumpt是gofmt的超集
+        // "formatting.gofumpt": true, // 格式化强化: 使用 gofumpt 进行格式化, gofumpt是gofmt的超集
         "usePlaceholders": true, // 启用智能占位符补全, 补全时插入占位符的模板(比如函数参数), 按Tab可快速跳转填充
         "staticcheck": true, // lint强化: 使用staticcheck进行lint检查, 比 go vet 更严格
         "analyses": {
