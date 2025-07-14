@@ -112,7 +112,8 @@
     "go.formatTool": "goimports", // 格式化强化: goimports = gofmt + 自动增删 import 语句, 按照上面的文档, 这个应该没有生效
     /// test
     "go.testFlags": [
-        "-gcflags=\"all=-l -N\"", // 编译时取消内联, 用于mock库
+        // "-gcflags=\"all=-l -N\"", // 编译时取消内联, 用于mock库
+        "-gcflags=all=-l", // 编译时取消内联, 用于mock库
         "-v", // 即verbose, 详细输出, 显示包括标准输出和日志以及子测试
         "-cover", // 显示包内单测测试函数对整个包的“正式”代码的覆盖率
         "-race" // 竞态分析, 判断单测函数是否有并发冲突
