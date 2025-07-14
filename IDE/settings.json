@@ -11,7 +11,7 @@
     "terminal.integrated.fontFamily": "MesloLGM NF", // 终端字体
     // "editor.fontLigatures": true, // 字体连字, mac上不能使用, 因为Fira Code对 f 做连字后不再是等宽字体
     // "editor.cursorStyle": "line",  // [默认] 光标格式, 线
-    // "editor.autoIndent": "full", // [默认] 换行时锁紧策略, 全锁进
+    // "editor.autoIndent": "full", // [默认] 换行时缩进策略, 全缩进
     //
     "workbench.editor.wrapTabs": true, // 打开标签页换行
     "editor.minimap.enabled": true, // 显示(右侧)缩略图
