@@ -11,7 +11,7 @@
     "workbench.iconTheme": "vscode-icons", // 图标, 依赖插件: vscode-icons
     "editor.fontFamily": "Fira Code", // 字体, 依赖插件: FiraCode font - Professional Font for Developers
     "terminal.integrated.fontFamily": "MesloLGM NF", // 终端字体
-    // "editor.fontLigatures": true, // 字体连字, mac上不能使用, 因为Fira Code对 f 做连字后不再是等宽字体
+    "editor.fontLigatures": false, // 字体连字, mac上不能使用, 因为Fira Code对 f 做连字后不再是等宽字体
     // "editor.cursorStyle": "line",  // [默认] 光标格式, 线
     // "editor.autoIndent": "full", // [默认] 换行时缩进策略, 全缩进
     //
