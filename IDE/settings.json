@@ -4,7 +4,7 @@
     // ==================== 基本配置 ====================
     "security.workspace.trust.enabled": false, // 关闭工作区信任
     "editor.formatOnSave": true, // 保存时自动格式化
-    "window.restoreWindows": "none", // 重启窗口时不恢复窗口
+    // "window.restoreWindows": "none", // 重启窗口时不恢复窗口
     "workbench.startupEditor": "none", // 打开VSCode时不打开开始界面
     // 以下配置依赖插件
     "workbench.colorTheme": "One Dark Pro Darker", // 主题, 依赖插件: One Dark Pro
@@ -151,5 +151,6 @@
     "files.associations": {
         "dryadsfile": "python", // dryadsfile
         "*.idl": "thrift" // only for didi
-    }
+    },
+    "bookmarks.saveBookmarksInProject": true
 }
